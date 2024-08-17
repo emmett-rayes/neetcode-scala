@@ -1,5 +1,4 @@
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
 
 /**
  * Given an integer array nums, return an array answer such that answer[i] is equal to the product
@@ -8,7 +7,7 @@ import scala.collection.mutable.ArrayBuffer
  * You must write an algorithm that runs in O(n) time and without using the division operation.
  */
 def product_except_self(nums: Array[Int]): Array[Int] =
-  val result: mutable.ArrayBuffer[Int] = ArrayBuffer.fill(nums.length)(1)
+  val result = mutable.ArrayBuffer.fill(nums.length)(1)
 
   var prefix = 1
   for ((n, i) <- nums.zipWithIndex.dropRight(1)) do

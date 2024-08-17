@@ -1,5 +1,4 @@
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
 
 /**
  * Design an algorithm to encode a list of strings to a string.
@@ -13,7 +12,7 @@ def encode(strs: Array[String]): String =
   result.mkString
 
 def decode(s: String): Array[String] =
-  val result: mutable.ArrayBuffer[String] = ArrayBuffer()
+  val result = mutable.ArrayBuffer[String]()
   var i = 0
   var ll = 0
   while i < s.length do

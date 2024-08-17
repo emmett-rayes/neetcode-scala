@@ -7,7 +7,7 @@ import scala.util.boundary.break
  * and return false if every element is distinct.
  */
 def contains_duplicate(nums: Array[Int]): Boolean =
-  val seen: mutable.Set[Int] = mutable.HashSet()
+  val seen = mutable.HashSet[Int]()
   boundary:
     for (n <- nums) do
       if seen.contains(n) then break(true) else

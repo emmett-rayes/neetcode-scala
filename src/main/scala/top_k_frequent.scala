@@ -7,7 +7,7 @@ import scala.util.boundary.break
  * You may return the answer in any order.
  */
 def top_k_frequent(nums: Array[Int], k: Int): Array[Int] =
-  val frequency: mutable.Map[Int, Int] = mutable.Map().withDefaultValue(0)
+  val frequency = mutable.HashMap[Int, Int]().withDefaultValue(0)
   for (n <- nums) do
     frequency.update(n, frequency(n) + 1)
 
@@ -17,11 +17,11 @@ def top_k_frequent(nums: Array[Int], k: Int): Array[Int] =
       case None => Some(f)
       case Some(v) => if f > v then Some(f) else Some(v)
 
-  val histogram: Array[mutable.HashSet[Int]] = Array.fill(max_freq.get)(mutable.HashSet())
+  val histogram = Array.fill(max_freq.get)(mutable.HashSet[Int]())
   for ((n, f) <- frequency) do
     histogram(f - 1).add(n)
 
-  val result: mutable.ArrayBuffer[Int] = mutable.ArrayBuffer.empty
+  val result = mutable.ArrayBuffer[Int]()
   boundary:
     for (s <- histogram.reverseIterator) do
       for (n <- s) do

@@ -27,4 +27,5 @@ def top_k_frequent(nums: Array[Int], k: Int): Array[Int] =
       for (n <- s) do
         result.append(n)
         if result.size >= k then break()
+
   result.toArray

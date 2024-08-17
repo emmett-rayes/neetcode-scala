@@ -15,6 +15,7 @@ def valid_anagram(s: String, t: String): Boolean =
     frequency.update(c, frequency(c) + 1)
   for (c <- t) do
     frequency.update(c, frequency(c) - 1)
+
   boundary:
     for (i <- frequency.values) do
       if i != 0 then break(false)

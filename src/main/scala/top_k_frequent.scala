@@ -9,7 +9,7 @@ import scala.util.boundary.break
 def top_k_frequent(nums: Array[Int], k: Int): Array[Int] =
   val frequency = mutable.HashMap[Int, Int]().withDefaultValue(0)
   for (n <- nums) do
-    frequency.update(n, frequency(n) + 1)
+    frequency(n) += 1
 
   var max_freq: Option[Int] = None
   for (f <- frequency.values) do

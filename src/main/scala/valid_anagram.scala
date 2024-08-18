@@ -12,9 +12,9 @@ def valid_anagram(s: String, t: String): Boolean =
 
   val frequency = mutable.HashMap[Char, Int]().withDefaultValue(0)
   for (c <- s) do
-    frequency.update(c, frequency(c) + 1)
+    frequency(c) += 1
   for (c <- t) do
-    frequency.update(c, frequency(c) - 1)
+    frequency(c) -= 1
 
   boundary:
     for (i <- frequency.values) do

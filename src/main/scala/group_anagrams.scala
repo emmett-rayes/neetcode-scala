@@ -11,12 +11,12 @@ def group_anagrams(strs: Array[String]): List[List[String]] =
   for (str <- strs) do
     val freq = mutable.HashMap[Char, Int]().withDefaultValue(0)
     for (c <- str) do
-      freq.update(c, freq(c) + 1)
+      freq(c) += 1
 
     val m = freq.toMap
     if frequencies.contains(m) then
       frequencies(m).append(str)
     else
-      frequencies.put(m, mutable.ArrayBuffer(str))
+      frequencies(m) = mutable.ArrayBuffer(str)
 
   frequencies.values.collect(array => array.toList).toList

@@ -12,5 +12,5 @@ def two_sum(nums: Array[Int], target: Int): Array[Int] =
   boundary:
     for ((n, i) <- nums.zipWithIndex) do
       if complement.contains(n) then break(Array(i, complement(n))) else
-        complement.put(target - n, i)
+        complement(target - n) = i
     Array()

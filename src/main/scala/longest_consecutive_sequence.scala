@@ -27,3 +27,14 @@ def longest_consecutive_sequence(nums: Array[Int]): Int =
   for (l <- sequence.values) do
     longest = math.max(longest, l)
   longest
+
+package alternative:
+  def longest_consecutive_sequence(nums: Array[Int]): Int =
+    val elements = (for n <- nums yield n).toSet
+    var longest = 0
+    for (n <- nums if !elements.contains(n - 1)) do
+      var l = 0
+      while elements.contains(n + l) do
+        l += 1
+      longest = math.max(longest, l)
+    longest

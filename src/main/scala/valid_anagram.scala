@@ -11,12 +11,12 @@ def valid_anagram(s: String, t: String): Boolean =
   if s.length != t.length then return false
 
   val frequency = mutable.HashMap[Char, Int]().withDefaultValue(0)
-  for (c <- s) do
+  for c <- s do
     frequency(c) += 1
-  for (c <- t) do
+  for c <- t do
     frequency(c) -= 1
 
   boundary:
-    for (i <- frequency.values) do
+    for i <- frequency.values do
       if i != 0 then break(false)
     true

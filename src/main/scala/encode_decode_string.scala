@@ -7,7 +7,7 @@ import scala.collection.mutable
 
 def encode(strs: Array[String]): String =
   val result: StringBuilder = StringBuilder()
-  for (s <- strs) do
+  for s <- strs do
     result.append(s.length + "#" + s)
   result.mkString
 

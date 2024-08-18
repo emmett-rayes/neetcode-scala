@@ -6,11 +6,11 @@ import scala.collection.mutable
  */
 def longest_consecutive_sequence(nums: Array[Int]): Int =
   val elements = mutable.HashSet[Int]()
-  for (n <- nums) do
+  for n <- nums do
     elements.add(n)
 
   val sequence = mutable.HashMap[Int, Int]()
-  for (n <- nums if !sequence.contains(n)) do
+  for n <- nums if !sequence.contains(n) do
     var m = n
     while elements.contains(m) && !sequence.contains(m) do
       m += 1
@@ -20,11 +20,11 @@ def longest_consecutive_sequence(nums: Array[Int]): Int =
 
     val len = m - n + 1
     val offset = sequence.getOrElse(m, 1)
-    for (i <- 0 until len) do
+    for i <- 0 until len do
       sequence(n + i) = len - i + offset - 1
 
   var longest = 0
-  for (l <- sequence.values) do
+  for l <- sequence.values do
     longest = math.max(longest, l)
   longest
 
@@ -32,7 +32,7 @@ package alternative:
   def longest_consecutive_sequence(nums: Array[Int]): Int =
     val elements = (for n <- nums yield n).toSet
     var longest = 0
-    for (n <- nums if !elements.contains(n - 1)) do
+    for n <- nums if !elements.contains(n - 1) do
       var l = 0
       while elements.contains(n + l) do
         l += 1

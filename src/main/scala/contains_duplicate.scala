@@ -9,7 +9,7 @@ import scala.util.boundary.break
 def contains_duplicate(nums: Array[Int]): Boolean =
   val seen = mutable.HashSet[Int]()
   boundary:
-    for (n <- nums) do
+    for n <- nums do
       if seen.contains(n) then break(true) else
         seen.add(n)
     false

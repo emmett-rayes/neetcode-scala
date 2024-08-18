@@ -8,9 +8,9 @@ import scala.collection.mutable
 def group_anagrams(strs: Array[String]): List[List[String]] =
   val frequencies = mutable.HashMap[Map[Char, Int], mutable.ArrayBuffer[String]]()
 
-  for (str <- strs) do
+  for str <- strs do
     val freq = mutable.HashMap[Char, Int]().withDefaultValue(0)
-    for (c <- str) do
+    for c <- str do
       freq(c) += 1
 
     val m = freq.toMap

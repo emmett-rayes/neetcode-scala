@@ -10,7 +10,7 @@ import scala.util.boundary.break
 def two_sum(nums: Array[Int], target: Int): Array[Int] =
   val complement = mutable.HashMap[Int, Int]()
   boundary:
-    for ((n, i) <- nums.zipWithIndex) do
+    for (n, i) <- nums.zipWithIndex do
       if complement.contains(n) then break(Array(i, complement(n))) else
         complement(target - n) = i
     Array()

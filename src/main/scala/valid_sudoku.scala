@@ -19,13 +19,13 @@ def valid_sudoku(board: Array[Array[Char]]): Boolean =
   val width = board(0).length
   val block = board.length / 3
 
-  val rows = (for (i <- 0 to height) yield (i, mutable.HashSet[Char]())).toMap
-  val columns = (for (j <- 0 to width) yield (j, mutable.HashSet[Char]())).toMap
-  val blocks = (for (i <- 0 to block; j <- 0 to block) yield ((i, j), mutable.HashSet[Char]())).toMap
+  val rows = (for i <- 0 to height yield (i, mutable.HashSet[Char]())).toMap
+  val columns = (for j <- 0 to width yield (j, mutable.HashSet[Char]())).toMap
+  val blocks = (for i <- 0 to block; j <- 0 to block yield ((i, j), mutable.HashSet[Char]())).toMap
 
   boundary:
-    for ((r, i) <- board.zipWithIndex) do
-      for ((c, j) <- r.zipWithIndex) do
+    for (r, i) <- board.zipWithIndex do
+      for (c, j) <- r.zipWithIndex do
         if c != '.' then
           if rows(i).contains(c) then break(false) else rows(i).add(c)
           if columns(j).contains(c) then break(false) else columns(j).add(c)

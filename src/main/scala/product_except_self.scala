@@ -10,12 +10,12 @@ def product_except_self(nums: Array[Int]): Array[Int] =
   val result = mutable.ArrayBuffer.fill(nums.length)(1)
 
   var prefix = 1
-  for ((n, i) <- nums.zipWithIndex.dropRight(1)) do
+  for (n, i) <- nums.zipWithIndex.dropRight(1) do
     prefix = prefix * n
     result(i + 1) *= prefix
 
   var postfix = 1
-  for ((n, i) <- nums.zipWithIndex.reverse.dropRight(1)) do
+  for (n, i) <- nums.zipWithIndex.reverse.dropRight(1) do
     postfix = postfix * n
     result(i - 1) *= postfix
 
